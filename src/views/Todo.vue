@@ -14,12 +14,14 @@ export default defineComponent({
     const appStore = useAppStore();
     const todoItem = ref(null);
 
-    onBeforeMount(() => {
+    onBeforeMount(async () => {
       console.log('Store');
 
-      console.log('TODO', appStore.$state.activeTodo);
+      console.log('TODO', { ...appStore.$state.activeTodo });
 
       console.log('End Store');
+
+      await appStore.getTodos();
     });
 
     return {
