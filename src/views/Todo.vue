@@ -5,14 +5,15 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, onBeforeMount, ref } from 'vue';
+import { defineComponent, onBeforeMount, computed } from 'vue';
 import { useAppStore } from '@/store';
 
 export default defineComponent({
   name: 'TodoView',
   setup() {
     const appStore = useAppStore();
-    const todoItem = ref(null);
+
+    const todoItem = computed(() => appStore.$state.activeTodo);
 
     onBeforeMount(async () => {
       console.log('Store');
