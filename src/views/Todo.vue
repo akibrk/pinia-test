@@ -18,10 +18,12 @@ export default defineComponent({
     onBeforeMount(async () => {
       console.log('Store');
 
+      // In the real project this comes up as undefined
       console.log('TODO', { ...appStore.$state.activeTodo });
 
       console.log('End Store');
 
+      // Rest of the code..
       await appStore.getTodos();
     });
 

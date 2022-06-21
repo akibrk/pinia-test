@@ -25,6 +25,7 @@ export default defineComponent({
       await appStore.getTodo('1');
       const activeTodo = appStore.$state.activeTodo;
       console.log({ ...activeTodo });
+      // Makes some routing decisions
       await router.push({ name: 'todo' });
     });
   },
